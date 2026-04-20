@@ -1,0 +1,29 @@
+.hero-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.middle-img {
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .middle-img {
+    height: 60vh;
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .middle-img {
+    height: 100%;
+  }
+}
+
+@media (max-width: 425px) {
+  .middle-img {
+    height: 100%;
+  }
+}

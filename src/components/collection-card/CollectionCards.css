@@ -1,0 +1,99 @@
+/* Section spacing (tumhari requirement exact) */
+.section-space {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.section-space .content-wrapper {
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+/* Heading */
+.section-title {
+  font-size: 38px;
+  font-weight: 500;
+  margin-bottom: 40px;
+  background-image: var(--brand-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+
+
+/* Card */
+.collection-card {
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.collection-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.collection-card:hover {
+  transform: translateY(-8px);
+}
+
+/* Title under image */
+.collection-title {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #6b7280; /* grey */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.collection-title i {
+  font-size: 14px;
+}
+
+/* ================= Responsive ================= */
+
+/* Tablet */
+@media (max-width: 992px) {
+  .section-space {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .section-space .content-wrapper {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .collection-card img {
+    height: 100%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .section-space {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+
+  .section-space .content-wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .section-title {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  .collection-card img {
+    height: 100%;
+  }
+}

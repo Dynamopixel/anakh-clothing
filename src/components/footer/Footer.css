@@ -1,0 +1,117 @@
+.content-wrapper {
+  padding-left: 120px !important;
+  padding-right: 120px !important;
+}
+
+/* Feature container */
+.footer-feature {
+  display: flex;
+  align-items: flex-start;
+}
+.footer-top.border-bottom.border-secondary.py-4 {
+    margin-bottom: 20px;
+}
+
+
+/* Icon */
+.footer-feature i {
+  font-size: 22px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: #fff;
+}
+
+/* Heading */
+.footer-feature h6 {
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Text */
+.footer-feature p {
+  font-size: 12px;
+  color: #aaa;
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* Responsive alignment fix */
+@media (max-width: 576px) {
+  .footer-feature {
+    gap: 10px;
+  }
+}
+
+/* Middle text */
+.footer-text {
+  font-size: 13px;
+  color: #aaa;
+  line-height: 1.7;
+}
+
+/* Links */
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  font-size: 13px;
+  color: #aaa;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.footer-links li:hover {
+  color: #fff;
+}
+
+/* Social icons */
+.social-icons i {
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.social-icons i:hover {
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Payment */
+.payment-img {
+  max-width: 180px;
+  margin-top: 10px;
+}
+
+/* Bottom links */
+.footer-bottom-links li a {
+  font-size: 12px;
+  transition: 0.3s;
+}
+
+.footer-bottom-links li a:hover {
+  color: #fff !important;
+  cursor: pointer;
+}
+
+/* Mobile Fix (Tablets and Phones) */
+@media (max-width: 992px) {
+  .content-wrapper {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+/* Extra safety for very small screens */
+@media (max-width: 576px) {
+  .content-wrapper {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  .footer-text {
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,108 @@
+/* MyNavbar.css */
+
+.top-bar {
+ background: var(--brand-gradient);
+  font-size: 14.5px;
+  font-weight: 500;
+}
+
+.close-icon {
+  cursor: pointer;
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+.close-icon:hover {
+  opacity: 1;
+}
+
+/* Main Navbar */
+.main-navbar {
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+.main-navbar .container-fluid {
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #1f2937;
+  text-decoration: none;
+}
+
+.logo-img {
+  height: 48px;
+  width: auto;
+}
+
+.brand-text strong {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.brand-text small {
+  font-size: 9.5px;
+  color: #6b7280;
+  display: block;
+}
+
+/* Menu Links */
+.nav-links .nav-link {
+  font-weight: 600;
+  color: #374151 !important;
+  margin: 0 16px;
+  padding: 8px 0;
+  transition: color 0.3s;
+}
+
+.nav-links .nav-link:hover,
+.nav-links .nav-link.active {
+  color: #ec4899 !important;
+}
+
+/* Right Icons */
+.nav-icons .nav-link {
+  font-size: 1.45rem;
+  color: #374151;
+  margin-left: 12px;
+  padding: 6px;
+}
+
+.nav-icons .nav-link:hover {
+  color: #ec4899;
+}
+
+/* ================= Responsive Fixes ================= */
+@media (max-width: 992px) {
+     .main-navbar .container-fluid {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  .nav-links {
+    margin: 15px 0;
+    text-align: center;
+  }
+  
+  .nav-links .nav-link {
+    margin: 10px 0;
+  }
+
+  .nav-icons {
+    justify-content: center;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .logo-img {
+    height: 42px;
+  }
+   .main-navbar .container-fluid {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
