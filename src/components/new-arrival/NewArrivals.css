@@ -69,36 +69,7 @@
   color: #111;
 }
 
-/* Button */
-.add-btn {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #111;
-  background: #fff;
-  font-weight: 600;
-  border-radius: 6px;
-  transition: 0.3s;
-}
 
-.add-btn:hover {
-  background: #111;
-  color: #fff;
-}
-
-/* Bottom button */
-.view-btn {
-  padding: 10px 28px;
-  border: none;
-  border-radius: 30px;
-  font-weight: 600;
-  color: #fff;
-  background: var(--brand-gradient);
-  cursor: pointer;
-}
-
-.view-btn:hover {
-  opacity: 0.9;
-}
 
 /* Mobile */
 @media (max-width: 576px) {

@@ -1,6 +1,7 @@
 import React from 'react'
 import "./NewArrivals.css"
 import { Container, Row, Col } from 'react-bootstrap';
+import CartButton from '../cart-button/CartButton';
 import GradientButton from "../gradientbutton/GradientButton"
 
 import img1 from "../../assets/images/arrive1.png"
@@ -81,9 +82,7 @@ const NewArrivals = () => {
                   </span>
                 </div>
 
-                <button className="add-btn">
-                  Add to Cart
-                </button>
+               <CartButton buttontext="Add to Cart" />
 
               </div>
 

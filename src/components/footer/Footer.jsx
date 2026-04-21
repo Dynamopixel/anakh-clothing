@@ -1,9 +1,9 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import "bootstrap-icons/font/bootstrap-icons.css";
 import footlogo from "../../assets/images/foot-logo.png"
 
 import paymentImg from "../../assets/images/payment-icons.png";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -75,10 +75,13 @@ const Footer = () => {
             <Col xs={12} md={4} className="text-start ps-lg-5">
               <h6 className="mb-3 fs-3 ps-0  ">Quick Links</h6>
               <ul className="footer-links list-unstyled lh-lg">
-                <li>Home</li>
-                <li>Shop</li>
-                <li>Contact Us</li>
-                <li>Track Order</li>
+                <li><Link to="/" className="text-white text-decoration-none">Home</Link></li>
+                <li><Link to="/shop" className="text-white text-decoration-none">Shop</Link></li>
+                <li><Link to="/men" className="text-white text-decoration-none">Men</Link></li>
+                <li><Link to="/women" className="text-white text-decoration-none">Women</Link></li>
+                <li><Link to="/new-arrival" className="text-white text-decoration-none">New Arrival</Link></li>
+                <li><Link to="/contact" className="text-white text-decoration-none">Contact Us</Link></li>
+
               </ul>
             </Col>
 
@@ -89,7 +92,7 @@ const Footer = () => {
                 src={paymentImg}
                 alt="Payments"
                 className="payment-img img-fluid"
-                style={{ marginLeft: "0" }} // Ensure left alignment
+                style={{ marginLeft: "0" }}
               />
             </Col>
 

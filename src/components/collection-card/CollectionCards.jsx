@@ -23,7 +23,7 @@ const CollectionCards = () => {
       <div className="content-wrapper">
 
         {/* Heading */}
-        <h2 className="section-title text-center mb-lg-5">
+        <h2 className="section-title text-center mb-lg-5 ">
           Our Featured Collection
         </h2>
 

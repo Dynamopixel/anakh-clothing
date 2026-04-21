@@ -1,4 +1,3 @@
-// src/components/common/Navbar/MyNavbar.tsx
 import React from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -16,14 +15,14 @@ const MyNavbar = () => {
       </div>
 
       {/* Main Navbar */}
-      <Navbar 
-        bg="white" 
-        expand="lg" 
-        sticky="top" 
+      <Navbar
+        bg="white"
+        expand="lg"
+        sticky="top"
         className="main-navbar shadow-sm"
       >
-        <Container fluid >   
-          
+        <Container fluid >
+
           {/* Logo */}
           <Navbar.Brand as={Link} to="/" className="brand-logo">
             <img
@@ -35,40 +34,48 @@ const MyNavbar = () => {
           </Navbar.Brand>
 
           {/* Toggle Button */}
-          <Navbar.Toggle aria-controls="navbar-nav" />
+          <Navbar.Toggle aria-controls="navbarScroll" className="custom-toggler">
+            <span></span>
+            <span></span>
+            <span></span>
+          </Navbar.Toggle>
 
           {/* Navbar Links & Icons */}
           <Navbar.Collapse id="navbar-nav">
-            
+
             <Nav className="mx-auto nav-links">
-              <Nav.Link 
-                as={Link} 
+              <Nav.Link
+                as={Link}
                 to="/men"
-                
+
               >
                 MEN
               </Nav.Link>
-              <Nav.Link 
-                as={Link} 
+              <Nav.Link
+                as={Link}
                 to="/women"
-              
+
               >
                 WOMEN
               </Nav.Link>
-              <Nav.Link 
-                as={Link} 
+              <Nav.Link
+                as={Link}
                 to="/new-arrival"
-               
+
               >
                 NEW ARRIVAL
               </Nav.Link>
             </Nav>
 
             {/* Right Side Icons */}
-            <Nav className="nav-icons">
-              <Nav.Link href="#"><i className="bi bi-search"></i></Nav.Link>
-              {/* <Nav.Link href="#"><i className="bi bi-person"></i></Nav.Link> */}
-              <Nav.Link href="#"><i className="bi bi-bag"></i></Nav.Link>
+            <Nav className="nav-icons d-flex align-items-center">
+              <Nav.Link href="#" className="icon-link">
+                <i className="bi bi-search"></i>
+              </Nav.Link>
+
+              <Nav.Link as={Link} to="/cart" className="icon-link">
+                <i className="bi bi-bag"></i>
+              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

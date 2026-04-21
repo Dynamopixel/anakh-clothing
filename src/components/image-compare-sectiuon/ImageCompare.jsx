@@ -1,8 +1,10 @@
 import React, { useRef, useState, useEffect } from 'react'
 import "./ImageCompare.css";
+import BlurImage from "../../assets/images/blur-image.png"
+import Playerr from "../../assets/images/playerr.png"
 
 const ImageCompare = () => {
-    const containerRef = useRef(null);
+  const containerRef = useRef(null);
   const [position, setPosition] = useState(50);
   const [containerWidth, setContainerWidth] = useState(0);
 
@@ -11,7 +13,7 @@ const ImageCompare = () => {
     if (containerRef.current) {
       setContainerWidth(containerRef.current.offsetWidth);
     }
-    
+
     // Window resize hone par width update karein
     const handleResize = () => {
       if (containerRef.current) setContainerWidth(containerRef.current.offsetWidth);
@@ -54,11 +56,13 @@ const ImageCompare = () => {
     window.addEventListener("touchend", stopTouch);
   };
 
-  const imageUrl = "https://ghpc.in/cdn/shop/articles/10-best-clothing-colour-combination-ideas-for-men-a-complete-guide-ghpc.jpg?v=1707562652&width=2048";
+  const imageUrl = BlurImage;
+
   return (
-   <div className="container-fluid  d-flex justify-content-center align-items-center bg-dark">
+
+    <div className="container-fluid p-0 bg-dark w-100">
       <div ref={containerRef} className="slider-container">
-        
+
         {/* BLURRED IMAGE (Ye hamesha peeche rahegi) */}
         <img src={imageUrl} alt="Blurred Shirt" className="image-under" />
 
@@ -83,7 +87,7 @@ const ImageCompare = () => {
           className="slider-handle"
           style={{ left: `${position}%` }}
         >
-          <span>⇆</span>
+          <span><img src={Playerr} /></span>
         </div>
       </div>
     </div>

@@ -1,0 +1,15 @@
+/* Button */
+.add-btn {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #111;
+  background: #fff;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.add-btn:hover {
+  background: #111;
+  color: #fff;
+}

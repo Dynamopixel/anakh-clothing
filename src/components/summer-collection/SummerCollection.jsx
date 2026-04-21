@@ -2,6 +2,7 @@ import React from 'react'
 import "./SummerCollection.css"
 import { Container, Row, Col } from 'react-bootstrap';
 import GradientButton from "../gradientbutton/GradientButton"
+import CartButton from '../cart-button/CartButton';
 
 import summer1 from "../../assets/images/summer1.png"
 import summer2 from "../../assets/images/summer2.png"
@@ -81,9 +82,7 @@ const SummerCollection = () => {
                   </span>
                 </div>
 
-                <button className="add-btn">
-                  Add to Cart
-                </button>
+               <CartButton buttontext="Add to Cart" />
 
               </div>
 

@@ -56,16 +56,13 @@
   padding: 0;
 }
 
-.footer-links li {
-  font-size: 13px;
-  color: #aaa;
-  margin-bottom: 8px;
-  cursor: pointer;
-  transition: 0.3s;
+.footer-links li a {
+  color: #fff !important;
+  text-decoration: none !important;
 }
 
-.footer-links li:hover {
-  color: #fff;
+.footer-links li a:hover {
+  color: #ddd; 
 }
 
 /* Social icons */
@@ -114,4 +111,5 @@
   .footer-text {
     font-size: 15px;
   }
+ 
 }

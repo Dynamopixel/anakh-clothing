@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Allproducts from "../../products-data/Data"
 import {
   Container,
@@ -7,26 +7,27 @@ import {
   Card
 } from "react-bootstrap";
 import CartButton from '../../components/cart-button/CartButton';
+import GradientButton from '../../components/gradientbutton/GradientButton';
 
-const Women = () => {
+const ArrivalPage = () => {
+
+
+
   return (
-     <div className="section-space">
+    <div className="section-space">
       <Container fluid className="content-wrapper">
 
         <Row className="g-3 gx-lg-5">
 
           <h2 className="section-title text-center mb-lg-4">
-            Women
+            New Arrival
           </h2>
 
           {/*  PRODUCTS */}
           <Col lg={12} md={12} sm={12} >
 
             <Row>
-              {
-              Allproducts
-              .filter((item)=> item.category === "women")
-              .map((item) => (
+              {Allproducts.map((item) => (
                 <Col lg={3} md={6} sm={12} key={item.id} className="mb-4">
 
                   <Card className="h-100 product-card shadow-sm">
@@ -52,6 +53,15 @@ const Women = () => {
               ))}
             </Row>
 
+            <Row className=" mt-5">
+              <Col className="text-center">
+
+                    <GradientButton text="VIEW ALL PRODUCTS"  />
+              
+
+              </Col>
+            </Row>
+
           </Col>
 
         </Row>
@@ -61,4 +71,4 @@ const Women = () => {
   )
 }
 
-export default Women
+export default ArrivalPage

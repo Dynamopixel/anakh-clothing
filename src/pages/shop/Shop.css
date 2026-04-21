@@ -1,0 +1,39 @@
+.section-space {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+.section-space .content-wrapper {
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+.filter-panel {
+  background: #fff;
+}
+.sticky-sidebar {
+  position: sticky;
+  top: 100px; 
+  
+}
+
+
+.product-card {
+  transition: 0.3s;
+  border: none;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+
+@media (max-width: 576px) {
+    .section-space {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+.section-space .content-wrapper {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+}
