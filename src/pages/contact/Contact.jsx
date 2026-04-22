@@ -4,7 +4,8 @@ import {
   Row,
   Col, Card, Form, Button
 } from "react-bootstrap";
-import Allproducts from '../../products-data/Data';
+
+import "./Contact.css"
 
 
 const Contact = () => {
@@ -35,9 +36,9 @@ const Contact = () => {
 
         </Row>
 
-        <Row className="gy-lg-3 gy-3  gx-lg-5 mt-lg-3 mt-3">
+        <Row className="gy-lg-3 gy-3  gx-lg-5 mt-lg-3 mt-3 farmer">
 
-         
+
           <Col lg={5} md={5} sm={12} className="mb-4 ">
 
             <div className=" pt-sm-3 p-lg-4 sticky-sidebar">
@@ -46,7 +47,6 @@ const Contact = () => {
               <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
                 Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat sed do eiusmod tempor</p>
 
-
               <hr />
 
               <Container>
@@ -54,33 +54,43 @@ const Contact = () => {
 
                 <Col >
                   <div className="footer-feature d-flex align-items-center gap-3 mb-4">
-                    <i  className="bi bi-shop fs-3"></i>
+                    <i className="bi bi-shop fs-3"></i>
                     <div>
-                  
+
                       <p className="mb-0">5th Floor, Dynamo Pixel, Vista Business Tower, D-270, <br /> Phase 8B, Industrial Area, Sector 74, Punjab 160055</p>
                     </div>
                   </div>
                 </Col>
 
-                  <Col >
+                <Col >
                   <div className="footer-feature d-flex align-items-center gap-3 mb-4">
-                    <i  className="bi bi-telephone-outbound fs-3"></i>
+                    <i className="bi bi-telephone-outbound fs-3"></i>
                     <div>
-                  
+
                       <p className="mb-0">+91 123456789</p>
                       <p className="mb-0">+91 123456789</p>
                     </div>
                   </div>
                 </Col>
 
-                  <Col >
+                <Col >
                   <div className="footer-feature d-flex align-items-center gap-3 mb-4">
-                    <i  className="bi bi-envelope fs-3"></i>
+                    <i className="bi bi-envelope fs-3"></i>
                     <div>
-                  
+
                       <p className="mb-0">info@gmail.com</p>
                       <p className="mb-0">company@gmail.com</p>
                     </div>
+                  </div>
+                </Col>
+
+                <Col md={3} className="text-center text-md-start">
+                 <h4 className='mt-lg-4 mb-lg-3'>Follow Us</h4>
+                  <div className="social-icons d-flex gap-4 justify-content-center justify-content-md-start">
+                    <i className="bi bi-facebook fs-4 "></i>
+                    <i className="bi bi-instagram fs-4"></i>
+                    <i class="bi bi-whatsapp fs-4"></i>
+                    <i class="bi bi-twitter-x fs-4"></i>
                   </div>
                 </Col>
 

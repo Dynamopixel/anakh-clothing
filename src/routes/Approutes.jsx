@@ -9,22 +9,25 @@ import Shop from "../pages/shop/Shop"
 import ArrivalPage from '../pages/arrival-menu-page/ArrivalPage';
 import Pagenotfound from '../pages/Pagenotfound';
 import Cart from '../pages/cartpage/Cart';
+import ProductDetails from '../pages/product-info/ProductDetails';
 
 
 const Approutes = () => {
   return (
     <Routes>
-        <Route path='/' element={<Home/>} /> 
-        <Route path='/men' element={<Men/>} />
-        <Route path='/women' element={<Women/>} />
-        <Route path='/new-arrival' element={<ArrivalPage/>} />
-        <Route path='/shop' element={<Shop/>} />
-        <Route path='/contact-us' element={<Contact/>} />
-        <Route path='/cart' element={<Cart/>} />
-        <Route path='/contact' element={<Contact/>} />
-        
+      <Route path='/' element={<Home />} />
+      <Route path='/shop' element={<Shop />} />
 
-        <Route path="*" element={<Pagenotfound/>} />
+      {/* 👇 dynamic route for filtering */}
+      <Route path='/shop/:category' element={<Shop />} />
+
+      <Route path='/contact' element={<Contact />} />
+      <Route path='/cart' element={<Cart />} />
+      <Route path='/product' element={<ProductDetails />} />
+      <Route path='/:name' element={<ProductDetails />} />
+      
+
+      <Route path="*" element={<Pagenotfound />} />
     </Routes>
   )
 }

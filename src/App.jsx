@@ -6,9 +6,9 @@ import Approutes from './routes/Approutes';
 
 const App = () => {
   return (
-    <Router>
+    <Router >
       <MyNavbar/>
-        <Approutes/>
+      <Approutes/>
       <Footer/>
     </Router>
   )

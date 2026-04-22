@@ -15,7 +15,11 @@
   top: 100px; 
   
 }
-
+.form-check-input[type=checkbox] {
+    border-radius: .25em;
+    border: 1px solid #0000008f;
+    
+}
 
 .product-card {
   transition: 0.3s;
@@ -24,6 +28,17 @@
 
 .product-card:hover {
   transform: translateY(-5px);
+}
+
+@media (max-width: 768px){
+   .section-space {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.section-space .content-wrapper {
+  padding-left: 40px;
+  padding-right: 40px;
+}
 }
 
 

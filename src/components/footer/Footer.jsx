@@ -77,9 +77,6 @@ const Footer = () => {
               <ul className="footer-links list-unstyled lh-lg">
                 <li><Link to="/" className="text-white text-decoration-none">Home</Link></li>
                 <li><Link to="/shop" className="text-white text-decoration-none">Shop</Link></li>
-                <li><Link to="/men" className="text-white text-decoration-none">Men</Link></li>
-                <li><Link to="/women" className="text-white text-decoration-none">Women</Link></li>
-                <li><Link to="/new-arrival" className="text-white text-decoration-none">New Arrival</Link></li>
                 <li><Link to="/contact" className="text-white text-decoration-none">Contact Us</Link></li>
 
               </ul>

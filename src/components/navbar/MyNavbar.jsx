@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './MyNavbar.css';
 import Logo from "../../assets/images/logo.png";
+import { CartContext } from '../../context/CartContext';
+
 
 const MyNavbar = () => {
+
+  const [expanded, setExpanded] = useState(false)
+
+  const {cartCount} = useContext(CartContext)
 
   return (
     <>
@@ -14,17 +20,19 @@ const MyNavbar = () => {
         {/* <span className="ms-2 close-icon">✕</span> */}
       </div>
 
+
       {/* Main Navbar */}
       <Navbar
         bg="white"
         expand="lg"
         sticky="top"
         className="main-navbar shadow-sm"
+        expanded={expanded}
       >
         <Container fluid >
 
           {/* Logo */}
-          <Navbar.Brand as={Link} to="/" className="brand-logo">
+          <Navbar.Brand as={Link} to="/" className="brand-logo" onClick={() => setExpanded(false)}>
             <img
               src={Logo}
               alt="Aash Clothing"
@@ -34,7 +42,7 @@ const MyNavbar = () => {
           </Navbar.Brand>
 
           {/* Toggle Button */}
-          <Navbar.Toggle aria-controls="navbarScroll" className="custom-toggler">
+          <Navbar.Toggle aria-controls="navbarScroll" className="custom-toggler" onClick={() => setExpanded(expanded ? false : true)}>
             <span></span>
             <span></span>
             <span></span>
@@ -45,26 +53,27 @@ const MyNavbar = () => {
 
             <Nav className="mx-auto nav-links">
               <Nav.Link
-                as={Link}
-                to="/men"
+                as={Link} onClick={() => setExpanded(false)}
+                to="/"
 
               >
-                MEN
+                HOME
               </Nav.Link>
               <Nav.Link
-                as={Link}
-                to="/women"
+                as={Link} onClick={() => setExpanded(false)}
+                to="/shop"
 
               >
-                WOMEN
+                SHOP
               </Nav.Link>
               <Nav.Link
-                as={Link}
-                to="/new-arrival"
+                as={Link} onClick={() => setExpanded(false)}
+                to="/contact"
 
               >
-                NEW ARRIVAL
+                CONTACT
               </Nav.Link>
+
             </Nav>
 
             {/* Right Side Icons */}
@@ -73,9 +82,14 @@ const MyNavbar = () => {
                 <i className="bi bi-search"></i>
               </Nav.Link>
 
-              <Nav.Link as={Link} to="/cart" className="icon-link">
+              <Nav.Link as={Link} to="/cart" className="icon-link position-relative" onClick={() => setExpanded(false)}>
                 <i className="bi bi-bag"></i>
+
+                <span className='cart-badge'>{cartCount}</span>
+
               </Nav.Link>
+            
+            
             </Nav>
           </Navbar.Collapse>
         </Container>

@@ -8,6 +8,7 @@ import HomeSale from './home-sections/HomeSale';
 import SummerCollection from '../../components/summer-collection/SummerCollection';
 import ImageCompare from '../../components/image-compare-sectiuon/ImageCompare';
 
+
 const Home = () => {
   return (
  <>
@@ -18,6 +19,8 @@ const Home = () => {
  <HomeSale/>
  <SummerCollection/>
  {/* <ImageCompare/> */}
+ 
+
  </>
   );
 };

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import {
   Container,
   Row,
@@ -7,15 +7,17 @@ import {
   Form,
 } from "react-bootstrap";
 
+import { useParams } from "react-router-dom";
+
 import Allproducts from "../../products-data/Data";
 import "./Shop.css";
 import CartButton from "../../components/cart-button/CartButton";
+import { CartContext } from "../../context/CartContext";
+
 
 const Shop = () => {
-  const [category, setCategory] = useState({
-    men: false,
-    women: false,
-  });
+
+  const {addToCart} = useContext(CartContext)
 
   const [type, setType] = useState({
     new: false,
@@ -24,17 +26,28 @@ const Shop = () => {
 
   const [sort, setSort] = useState("");
 
+  //  URL PARAM (men / women / new-arrival)
+  const { category } = useParams();
+
   const filteredProducts = Allproducts
+
+    
     .filter((p) => {
-      const isCategorySelected = category.men || category.women;
 
-      if (!isCategorySelected) return true;
+      //  MEN / WOMEN
+      if (category === "men" || category === "women") {
+        return p.category === category;
+      }
 
-      return (
-        (category.men && p.category === "men") ||
-        (category.women && p.category === "women")
-      );
+      //  NEW ARRIVAL ROUTE  
+      if (category === "new-arrival") {
+        return p.type === "new";
+      }
+
+      return true;
     })
+
+    // COLLECTION FILTER 
     .filter((p) => {
       const isTypeSelected = type.new || type.summer;
 
@@ -45,11 +58,15 @@ const Shop = () => {
         (type.summer && p.type === "summer")
       );
     })
+
+    // SORT
     .sort((a, b) => {
       if (sort === "low") return a.price - b.price;
       if (sort === "high") return b.price - a.price;
       return 0;
     });
+
+
 
   return (
     <div className="section-space">
@@ -62,7 +79,7 @@ const Shop = () => {
           </h2>
 
           {/* FILTER SIDEBAR */}
-          <Col lg={3} md={5} sm={12} className="mb-4 ">
+          <Col lg={3} md={4} sm={12} className="mb-4 ">
 
             <div className="content-wrapper filter-panel p-4 shadow-sm rounded sticky-sidebar">
 
@@ -97,30 +114,46 @@ const Shop = () => {
               <Form.Check
                 type="checkbox"
                 label="Men"
-                onChange={(e) =>
-                  setCategory({ ...category, men: e.target.checked })
-                }
+                checked={category === "men"}
+                onChange={(e) => {
+                  if (e.target.checked) {
+                    window.location.href = "/shop/men";
+                  } else {
+                    window.location.href = "/shop";
+                  }
+                }}
               />
 
               <Form.Check
                 type="checkbox"
                 label="Women"
-                onChange={(e) =>
-                  setCategory({ ...category, women: e.target.checked })
-                }
+                checked={category === "women"}
+                onChange={(e) => {
+                  if (e.target.checked) {
+                    window.location.href = "/shop/women";
+                  } else {
+                    window.location.href = "/shop";
+                  }
+                }}
               />
 
               <hr />
 
-              {/* TYPE */}
+              {/* COLLECTION */}
               <h6 className="pt-3 pb-2 fs-5 ">Collection</h6>
 
+              {/* 👉 NEW ARRIVAL ADDED */}
               <Form.Check
                 type="checkbox"
                 label="New Arrival"
-                onChange={(e) =>
-                  setType({ ...type, new: e.target.checked })
-                }
+                checked={category === "new-arrival"}
+                onChange={(e) => {
+                  if (e.target.checked) {
+                    window.location.href = "/shop/new-arrival";
+                  } else {
+                    window.location.href = "/shop";
+                  }
+                }}
               />
 
               <Form.Check
@@ -134,8 +167,8 @@ const Shop = () => {
             </div>
           </Col>
 
-          {/* 🟢 PRODUCTS */}
-          <Col lg={9} md={7} sm={12} >
+          {/* PRODUCTS */}
+          <Col lg={9} md={8} sm={12} >
 
             <Row>
               {filteredProducts.map((item) => (

@@ -4,40 +4,21 @@ import { Container, Row, Col } from 'react-bootstrap';
 import GradientButton from "../gradientbutton/GradientButton"
 import CartButton from '../cart-button/CartButton';
 
-import summer1 from "../../assets/images/summer1.png"
-import summer2 from "../../assets/images/summer2.png"
-import summer3 from "../../assets/images/summer3.png"
-import summer4 from "../../assets/images/summer4.png"
+import Allproducts from "../../products-data/Data"
+import { Link } from 'react-router-dom';
 
-const products = [
-  {
-    img: summer1,
-    name: 'Text & Lion Print T-Shirt',
-    price: 999,
-    cutPrice: 1299,
-  },
-  {
-    img: summer2,
-    name: 'Hacker Face Mask Print T-Shirt',
-    price: 699,
-    cutPrice: 999,
-  },
-  {
-    img: summer3,
-    name: 'Authentic Gabru T-Shirt',
-    price: 699,
-    cutPrice: 999,
-  },
-  {
-    img: summer4,
-    name: 'Punjabi Aa Gaye Oye T-Shirt',
-    price: 699,
-    cutPrice: 999,
-  },
-];
-
+const slugify = (text) =>
+  text
+    .toLowerCase()
+    .trim()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-");
 
 const SummerCollection = () => {
+
+  const summerProducts = Allproducts.filter((item) => item.type === "summer")
+
   return (
     <section className="section-space product-section">
 
@@ -55,7 +36,7 @@ const SummerCollection = () => {
         {/* Products */}
         <Row className="g-5 g-md-3 g-lg-4 g-xl-4 mt-lg-2">
 
-          {products.map((item, index) => (
+          {summerProducts.map((item, index) => (
             <Col
               key={index}
               xs={12}
@@ -66,26 +47,33 @@ const SummerCollection = () => {
 
               <div className="product-card">
 
-                <img src={item.img} alt={item.name} />
+              
+                <Link style={{ textDecoration: "none", color: "inherit" }}
+                  to={`/${slugify(item.name)}`}
+                  className="product-link"
+                >
+                  <img src={item.img} alt={item.name} />
 
-                <h5 className="product-name pt-4 fs-6 fw-300">
-                  {item.name}
-                  
-                </h5>
+                  <h5 className="product-name pt-4 fs-6 fw-300">
+                    {item.name}
+                  </h5>
 
-                <div className="price-box">
-                  <span className="cut-price">
-                    ₹{item.cutPrice}
-                  </span>
-                  <span className="price">
-                    ₹{item.price}
-                  </span>
+                  <div className="price-box">
+                    <span className="cut-price">
+                      ₹{item.cutPrice}
+                    </span>
+                    <span className="price">
+                      ₹{item.price}
+                    </span>
+                  </div>
+                </Link>
+
+                {/* Button STILL inside card */}
+                <div className="cart-btn-wrapper">
+                  <CartButton buttontext="Add to Cart" />
                 </div>
 
-               <CartButton buttontext="Add to Cart" />
-
               </div>
-
             </Col>
           ))}
 

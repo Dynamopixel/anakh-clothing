@@ -80,6 +80,17 @@
   color: #ec4899;
 }
 
+.cart-badge{
+   position: absolute;
+   top: 0;
+   right: -8px;
+   background-color: red;
+   color: white;
+   font-size: 14px;
+   padding:3px 8px;
+   border-radius: 50%;
+}
+
 /* ================= Responsive Fixes ================= */
 @media (max-width: 992px) {
      .main-navbar .container-fluid {
@@ -107,9 +118,6 @@
     margin-top: 10px;
     gap: 25px;
   }
-  nav.main-navbar.shadow-sm.navbar.navbar-expand-lg.navbar-light.bg-white.sticky-top {
-    padding-bottom: 50px;
-}
 
   .navbar-custom {
     padding-top: 2rem !important;
@@ -167,6 +175,7 @@
   }
 
 }
+
 
 @media (max-width: 576px) {
   .logo-img {

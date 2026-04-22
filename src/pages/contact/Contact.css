@@ -3,9 +3,54 @@
   height: 450px;
   border: 0;
 }
+
 form {
     padding: 40px !important;
     box-shadow: 12px 12px 10px #00000080;
+}
+form.shadow-sm.formcnt.rounded {
+    padding: 35px;
+}
+.farmer {
+    padding: 0px 150px;
+}
+
+.bi-facebook:hover {
+  color: #1877f2;
+  cursor: pointer;
+  transition: 0.4s; 
+  transform: translateY(-3px);
+}
+
+.bi-instagram:hover {
+  color: #e4405f;
+  cursor: pointer;
+  transition: 0.4s; 
+  transform: translateY(-3px);
+}
+
+.bi-whatsapp:hover {
+  color: #25d366;
+  cursor: pointer;
+  transition: 0.4s; 
+  transform: translateY(-3px);
+}
+
+.bi-twitter-x:hover {
+  color: #000;
+  cursor: pointer;
+  transition: 0.4s; 
+  transform: translateY(-3px);
+}
+
+@media (max-width: 768px){
+   .farmer {
+    padding: 0px ;
+}
+.map-wrapper iframe {
+    height: 350px !important;
+    width: 100%;
+  }
 }
 
 @media (max-width: 572px) {
@@ -13,6 +58,9 @@ form {
     width: 100%;
     height: 250px !important;
   }
+  .farmer {
+    padding: 0px ;
+}
 
   .map-wrapper iframe {
     height: 250px !important;
