@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Container,
   Row,
@@ -9,6 +9,26 @@ import "./Contact.css"
 
 
 const Contact = () => {
+
+  const [formData, setFormData] = useState({
+     name: "",
+     email: "",
+     phone: "",
+     message: "",
+  })
+
+  const handleChange = (e)=>{
+     setFormData({
+        ...formData, 
+        [e.target.name] : e.target.value
+     })
+  }
+
+  const handleSubmit = (e)=>{
+     e.preventDefault()
+     console.log("Form Data:", formData)
+  }
+
   return (
     <div className="section-space">
       <Container fluid className="content-wrapper">
@@ -89,8 +109,8 @@ const Contact = () => {
                   <div className="social-icons d-flex gap-4 justify-content-center justify-content-md-start">
                     <i className="bi bi-facebook fs-4 "></i>
                     <i className="bi bi-instagram fs-4"></i>
-                    <i class="bi bi-whatsapp fs-4"></i>
-                    <i class="bi bi-twitter-x fs-4"></i>
+                    <i className="bi bi-whatsapp fs-4"></i>
+                    <i className="bi bi-twitter-x fs-4"></i>
                   </div>
                 </Col>
 
@@ -105,23 +125,23 @@ const Contact = () => {
           <Col lg={7} md={7} sm={12} >
 
             <Row>
-              <Form className='shadow-sm formcnt rounded '>
+              <Form className='shadow-sm formcnt rounded ' onSubmit={handleSubmit}>
                 {/* Name */}
                 <Form.Group className="mb-3">
                   <Form.Label>Name</Form.Label>
-                  <Form.Control type="text" placeholder="Enter your name" />
+                  <Form.Control name='name' onChange={handleChange} type="text" placeholder="Enter your name" />
                 </Form.Group>
 
                 {/* Email */}
                 <Form.Group className="mb-3">
                   <Form.Label>Email</Form.Label>
-                  <Form.Control type="email" placeholder="Enter your email" />
+                  <Form.Control name='email' onChange={handleChange} type="email" placeholder="Enter your email" />
                 </Form.Group>
 
                 {/* Phone */}
                 <Form.Group className="mb-3">
                   <Form.Label>Phone Number</Form.Label>
-                  <Form.Control type="tel" placeholder="Enter phone number" />
+                  <Form.Control name='phone' onChange={handleChange} type="tel" placeholder="Enter phone number" />
                 </Form.Group>
 
                 {/* Message */}
@@ -129,7 +149,7 @@ const Contact = () => {
                   <Form.Label>Message</Form.Label>
                   <Form.Control
                     as="textarea"
-                    rows={3}
+                    rows={3} name='message' onChange={handleChange}
                     placeholder="Enter message"
                   />
                 </Form.Group>
@@ -151,3 +171,4 @@ const Contact = () => {
 }
 
 export default Contact
+

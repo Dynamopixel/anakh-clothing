@@ -44,7 +44,7 @@ const ArrivalPage = () => {
                         <del className="text-muted cut-price">₹{item.cutPrice}</del>
                       </Card.Text>
 
-                      <CartButton buttontext="Add to Cart" />
+                      {/* <CartButton buttontext="Add to Cart" /> */}
                     </Card.Body>
 
                   </Card>

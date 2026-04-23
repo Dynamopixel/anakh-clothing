@@ -7,7 +7,7 @@ import {
   Form,
 } from "react-bootstrap";
 
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 import Allproducts from "../../products-data/Data";
 import "./Shop.css";
@@ -15,9 +15,18 @@ import CartButton from "../../components/cart-button/CartButton";
 import { CartContext } from "../../context/CartContext";
 
 
-const Shop = () => {
+const slugify = (text) =>
+  text
+    .toLowerCase()
+    .trim()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-");
 
-  const {addToCart} = useContext(CartContext)
+const Shop = () => {
+  const { addToCart } = useContext(CartContext);
+  const navigate = useNavigate();
+  const { category } = useParams();
 
   const [type, setType] = useState({
     new: false,
@@ -26,28 +35,19 @@ const Shop = () => {
 
   const [sort, setSort] = useState("");
 
-  //  URL PARAM (men / women / new-arrival)
-  const { category } = useParams();
-
+  // ✅ FILTER PRODUCTS
   const filteredProducts = Allproducts
-
-    
     .filter((p) => {
-
-      //  MEN / WOMEN
       if (category === "men" || category === "women") {
         return p.category === category;
       }
 
-      //  NEW ARRIVAL ROUTE  
       if (category === "new-arrival") {
         return p.type === "new";
       }
 
       return true;
     })
-
-    // COLLECTION FILTER 
     .filter((p) => {
       const isTypeSelected = type.new || type.summer;
 
@@ -58,15 +58,11 @@ const Shop = () => {
         (type.summer && p.type === "summer")
       );
     })
-
-    // SORT
     .sort((a, b) => {
       if (sort === "low") return a.price - b.price;
       if (sort === "high") return b.price - a.price;
       return 0;
     });
-
-
 
   return (
     <div className="section-space">
@@ -79,14 +75,14 @@ const Shop = () => {
           </h2>
 
           {/* FILTER SIDEBAR */}
-          <Col lg={3} md={4} sm={12} className="mb-4 ">
+          <Col lg={3} md={4} sm={12} className="mb-4">
 
             <div className="content-wrapper filter-panel p-4 shadow-sm rounded sticky-sidebar">
 
               <h4 className="mb-4">Filters</h4>
 
               {/* SORT */}
-              <h6 className="pt-3 pb-2 fs-5 ">Sort by Price</h6>
+              <h6 className="pt-3 pb-2 fs-5">Sort by Price</h6>
 
               <Form.Check
                 type="checkbox"
@@ -109,18 +105,15 @@ const Shop = () => {
               <hr />
 
               {/* CATEGORY */}
-              <h6 className="pt-3 pb-2 fs-5 ">Category</h6>
+              <h6 className="pt-3 pb-2 fs-5">Category</h6>
 
               <Form.Check
                 type="checkbox"
                 label="Men"
                 checked={category === "men"}
                 onChange={(e) => {
-                  if (e.target.checked) {
-                    window.location.href = "/shop/men";
-                  } else {
-                    window.location.href = "/shop";
-                  }
+                  if (e.target.checked) navigate("/shop/men");
+                  else navigate("/shop");
                 }}
               />
 
@@ -129,30 +122,23 @@ const Shop = () => {
                 label="Women"
                 checked={category === "women"}
                 onChange={(e) => {
-                  if (e.target.checked) {
-                    window.location.href = "/shop/women";
-                  } else {
-                    window.location.href = "/shop";
-                  }
+                  if (e.target.checked) navigate("/shop/women");
+                  else navigate("/shop");
                 }}
               />
 
               <hr />
 
               {/* COLLECTION */}
-              <h6 className="pt-3 pb-2 fs-5 ">Collection</h6>
+              <h6 className="pt-3 pb-2 fs-5">Collection</h6>
 
-              {/* 👉 NEW ARRIVAL ADDED */}
               <Form.Check
                 type="checkbox"
                 label="New Arrival"
                 checked={category === "new-arrival"}
                 onChange={(e) => {
-                  if (e.target.checked) {
-                    window.location.href = "/shop/new-arrival";
-                  } else {
-                    window.location.href = "/shop";
-                  }
+                  if (e.target.checked) navigate("/shop/new-arrival");
+                  else navigate("/shop");
                 }}
               />
 
@@ -168,20 +154,25 @@ const Shop = () => {
           </Col>
 
           {/* PRODUCTS */}
-          <Col lg={9} md={8} sm={12} >
+          <Col lg={9} md={8} sm={12}>
 
             <Row>
               {filteredProducts.map((item) => (
                 <Col lg={4} md={6} sm={12} key={item.id} className="mb-4">
 
-                  <Card className="h-100 product-card shadow-sm">
+               
+                  <Card
+                    className="h-100 product-card shadow-sm"
+                    onClick={() =>
+                      navigate(`/${slugify(item.name)}`)
+                    }
+                    style={{ cursor: "pointer" }}
+                  >
 
-                    <Card.Img
-                      variant="top"
-                      src={item.img}
-                    />
+                    <Card.Img variant="top" src={item.img} />
 
                     <Card.Body>
+
                       <Card.Title className="fs-6">
                         {item.name}
                       </Card.Title>
@@ -195,7 +186,10 @@ const Shop = () => {
                         </del>
                       </Card.Text>
 
-                      <CartButton buttontext="Add to Cart" />
+                      {/* prevent navigation when clicking button */}
+                      <div onClick={(e) => e.stopPropagation()}>
+                        <CartButton buttontext="Add to Cart" product={item} />
+                      </div>
 
                     </Card.Body>
 

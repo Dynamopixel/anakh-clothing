@@ -10,7 +10,7 @@ const MyNavbar = () => {
 
   const [expanded, setExpanded] = useState(false)
 
-  const {cartCount} = useContext(CartContext)
+  const { cartItems } = useContext(CartContext)
 
   return (
     <>
@@ -85,11 +85,13 @@ const MyNavbar = () => {
               <Nav.Link as={Link} to="/cart" className="icon-link position-relative" onClick={() => setExpanded(false)}>
                 <i className="bi bi-bag"></i>
 
-                <span className='cart-badge'>{cartCount}</span>
+                <span className="cart-badge">
+                  {cartItems?.length || 0}
+                </span>
 
               </Nav.Link>
-            
-            
+
+
             </Nav>
           </Navbar.Collapse>
         </Container>

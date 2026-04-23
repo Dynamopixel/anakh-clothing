@@ -1,20 +1,21 @@
 import React, { useRef, useState, useEffect } from 'react'
 import "./ImageCompare.css";
-import BlurImage from "../../assets/images/blur-image.png"
-import Playerr from "../../assets/images/playerr.png"
+
+import Playerr from "../../assets/images/playerr.png";
+
+import FrontImage from "../../assets/images/shirt-final-front.jpg"
+import BackImage from "../../assets/images/shrit-final-back.jpg"
 
 const ImageCompare = () => {
   const containerRef = useRef(null);
   const [position, setPosition] = useState(50);
   const [containerWidth, setContainerWidth] = useState(0);
 
-  // Container ki width calculate karne ke liye
   useEffect(() => {
     if (containerRef.current) {
       setContainerWidth(containerRef.current.offsetWidth);
     }
 
-    // Window resize hone par width update karein
     const handleResize = () => {
       if (containerRef.current) setContainerWidth(containerRef.current.offsetWidth);
     };
@@ -34,8 +35,7 @@ const ImageCompare = () => {
     setPosition(percentage);
   };
 
-  // Mouse Events
-  const startDrag = (e) => {
+  const startDrag = () => {
     const onMouseMove = (event) => handleMove(event.clientX);
     const stopDrag = () => {
       window.removeEventListener("mousemove", onMouseMove);
@@ -45,8 +45,7 @@ const ImageCompare = () => {
     window.addEventListener("mouseup", stopDrag);
   };
 
-  // Touch Events
-  const startTouch = (e) => {
+  const startTouch = () => {
     const onTouchMove = (event) => handleMove(event.touches[0].clientX);
     const stopTouch = () => {
       window.removeEventListener("touchmove", onTouchMove);
@@ -56,31 +55,28 @@ const ImageCompare = () => {
     window.addEventListener("touchend", stopTouch);
   };
 
-  const imageUrl = BlurImage;
-
   return (
-
     <div className="container-fluid p-0 bg-dark w-100">
       <div ref={containerRef} className="slider-container">
 
-        {/* BLURRED IMAGE (Ye hamesha peeche rahegi) */}
-        <img src={imageUrl} alt="Blurred Shirt" className="image-under" />
+        {/* BACK SIDE (Before) */}
+        <img src={BackImage} alt="Back Side" className="image-under" />
 
-        {/* CLEAR IMAGE (Ye slider ke saath move hogi) */}
+        {/* FRONT SIDE (After) */}
         <div className="image-over-wrapper" style={{ width: `${position}%` }}>
           <img
-            src={imageUrl}
-            alt="Clear Shirt"
+            src={FrontImage}
+            alt="Front Side"
             className="image-over"
             style={{ width: `${containerWidth}px` }}
           />
         </div>
 
-        {/* Updated Labels */}
-        <div className="label-tag" style={{ left: "15px" }}>Clear View</div>
-        <div className="label-tag" style={{ right: "15px" }}>Blurred View</div>
+        {/* Labels */}
+        <div className="label-tag" style={{ left: "15px" }}>FRONT </div>
+        <div className="label-tag" style={{ right: "15px" }}>BACK </div>
 
-        {/* Slider Handle */}
+        {/* Slider */}
         <div
           onMouseDown={startDrag}
           onTouchStart={startTouch}
@@ -89,9 +85,10 @@ const ImageCompare = () => {
         >
           <span><img src={Playerr} /></span>
         </div>
+
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ImageCompare
+export default ImageCompare;

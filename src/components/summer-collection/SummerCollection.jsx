@@ -70,7 +70,7 @@ const SummerCollection = () => {
 
                 {/* Button STILL inside card */}
                 <div className="cart-btn-wrapper">
-                  <CartButton buttontext="Add to Cart" />
+                  <CartButton buttontext="Add to Cart" product={item} />
                 </div>
 
               </div>

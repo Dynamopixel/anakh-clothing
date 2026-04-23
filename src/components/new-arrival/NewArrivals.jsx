@@ -67,7 +67,7 @@ const NewArrivals = () => {
                 </Link>
 
               
-                <CartButton buttontext="Add to Cart" onClick={addToCart} />
+                <CartButton buttontext="Add to Cart" product={item} />
 
               </div>
 

@@ -18,7 +18,7 @@ const Home = () => {
  <NewArrivals/>
  <HomeSale/>
  <SummerCollection/>
- {/* <ImageCompare/> */}
+ <ImageCompare/>
  
 
  </>
