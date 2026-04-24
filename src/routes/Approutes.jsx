@@ -8,6 +8,7 @@ import Pagenotfound from '../pages/Pagenotfound';
 import Cart from '../pages/cartpage/Cart';
 import ProductDetails from '../pages/product-info/ProductDetails';
 import Thanks from '../pages/Thanks';
+// import Women from "../pages/womenpage/Women"
 
 
 const Approutes = () => {
@@ -17,7 +18,8 @@ const Approutes = () => {
       <Route path='/shop' element={<Shop />} />
 
       {/* 👇 dynamic route for filtering */}
-      {/* <Route path='/shop/:category' element={<Shop />} /> */}
+      <Route path='/shop/:category' element={<Shop />} />
+
 
 
       <Route path='/contact' element={<Contact />} />

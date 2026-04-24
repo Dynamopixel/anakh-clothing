@@ -1,4 +1,4 @@
-import React from 'react'
+import {useContext} from 'react'
 import {
     Container,
     Row,
@@ -9,6 +9,9 @@ import { useParams } from "react-router-dom";
 import Allproducts from "../../products-data/Data"; 
 
 import "./ProductDetails.css"
+
+import CartButton from "../../components/cart-button/CartButton";
+import { CartContext } from "../../context/CartContext";
 
 const slugify = (text) =>
   text
@@ -61,7 +64,8 @@ const ProductDetails = () => {
                             </p>
 
                             <div className="d-flex align-items-center gap-3 mb-4">
-                                <button className="cart-btn">Add to Cart</button>
+                               
+                                   <CartButton style={{width:"80px"}} product={product} />
                             </div>
 
                             <div className="product-meta">

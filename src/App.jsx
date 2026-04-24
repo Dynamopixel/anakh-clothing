@@ -1,16 +1,18 @@
 import React from 'react'
-import { BrowserRouter as Router } from 'react-router-dom';
+import { Route, BrowserRouter as Router } from 'react-router-dom';
 import MyNavbar from './components/navbar/MyNavbar';
 import Footer from "./components/footer/Footer"
 import Approutes from './routes/Approutes';
 
 const App = () => {
+
   return (
-    <Router >
+    <Router>
       <MyNavbar/>
       <Approutes/>
       <Footer/>
     </Router>
+
   )
 }
 

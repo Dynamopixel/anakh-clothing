@@ -3,10 +3,11 @@ import "./NewArrivals.css"
 import { Container, Row, Col } from 'react-bootstrap';
 import CartButton from '../cart-button/CartButton';
 import GradientButton from "../gradientbutton/GradientButton"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import Allproducts from "../../products-data/Data";
 import { CartContext } from '../../context/CartContext';
+
 
 
 const slugify = (text) =>
@@ -23,7 +24,9 @@ const NewArrivals = () => {
     (item) => item.type === "new"
   );
 
-  const {addToCart} = useContext(CartContext)
+  const { addToCart } = useContext(CartContext)
+  const navigate = useNavigate();
+
 
   return (
     <section className="section-space product-section">
@@ -43,7 +46,7 @@ const NewArrivals = () => {
 
             <Col key={item.id} xs={12} sm={6} md={6} lg={3}>
 
-            
+
               <div className="product-card">
 
                 <Link style={{ textDecoration: "none", color: "inherit" }}
@@ -66,7 +69,7 @@ const NewArrivals = () => {
                   </div>
                 </Link>
 
-              
+
                 <CartButton buttontext="Add to Cart" product={item} />
 
               </div>
@@ -79,8 +82,7 @@ const NewArrivals = () => {
 
         <Row className="mt-5">
           <Col className="text-center">
-            <GradientButton text="View All Products" />
-          </Col>
+            <GradientButton text="View All Products" onClick={() => navigate("/shop")} /> </Col>
         </Row>
 
       </Container>

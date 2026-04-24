@@ -5,7 +5,7 @@ import GradientButton from "../gradientbutton/GradientButton"
 import CartButton from '../cart-button/CartButton';
 
 import Allproducts from "../../products-data/Data"
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
 
 const slugify = (text) =>
   text
@@ -18,6 +18,8 @@ const slugify = (text) =>
 const SummerCollection = () => {
 
   const summerProducts = Allproducts.filter((item) => item.type === "summer")
+
+  const navigate = useNavigate();
 
   return (
     <section className="section-space product-section">
@@ -82,7 +84,7 @@ const SummerCollection = () => {
         {/* Bottom Button */}
         <Row className=" mt-5">
           <Col className="text-center">
-            <GradientButton text="View All Products" />
+           <GradientButton text="View All Products" onClick={() => navigate("/shop")} />
           </Col>
         </Row>
 
