@@ -3,8 +3,8 @@ import "./ImageCompare.css";
 
 import Playerr from "../../assets/images/playerr.png";
 
-import FrontImage from "../../assets/images/shirt-final-front.jpg"
-import BackImage from "../../assets/images/shrit-final-back.jpg"
+import FrontImage from "../../assets/images/frame1.jpg"
+import BackImage from "../../assets/images/frame2.jpg"
 
 const ImageCompare = () => {
   const containerRef = useRef(null);
@@ -56,7 +56,7 @@ const ImageCompare = () => {
   };
 
   return (
-    <div className="container-fluid p-0 bg-dark w-100">
+    <div className="container-fluid p-0 bg-dark " style={{ width: "90%" }}>
       <div ref={containerRef} className="slider-container">
 
         {/* BACK SIDE (Before) */}

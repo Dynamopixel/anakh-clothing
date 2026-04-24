@@ -1,4 +1,4 @@
-import {useContext} from 'react'
+import { useContext } from 'react'
 import {
     Container,
     Row,
@@ -6,7 +6,7 @@ import {
 } from "react-bootstrap";
 
 import { useParams } from "react-router-dom";
-import Allproducts from "../../products-data/Data"; 
+import Allproducts from "../../products-data/Data";
 
 import "./ProductDetails.css"
 
@@ -14,12 +14,12 @@ import CartButton from "../../components/cart-button/CartButton";
 import { CartContext } from "../../context/CartContext";
 
 const slugify = (text) =>
-  text
-    .toLowerCase()
-    .trim()
-    .replace(/&/g, "and")
-    .replace(/[^a-z0-9\s-]/g, "")
-    .replace(/\s+/g, "-");
+    text
+        .toLowerCase()
+        .trim()
+        .replace(/&/g, "and")
+        .replace(/[^a-z0-9\s-]/g, "")
+        .replace(/\s+/g, "-");
 
 const ProductDetails = () => {
 
@@ -53,7 +53,7 @@ const ProductDetails = () => {
                             <h2 className="product-title mb-2">
                                 {product.name}
                             </h2>
-                           <h4 className='text-decoration-line-through mb-2'>{product.cutPrice}</h4>
+                            <h4 className='text-decoration-line-through mb-2'>{product.cutPrice}</h4>
 
                             <p className="product-price mb-3">
                                 ₹{product.price}
@@ -63,9 +63,9 @@ const ProductDetails = () => {
                                 {product.description}
                             </p>
 
-                            <div className="d-flex align-items-center gap-3 mb-4">
-                               
-                                   <CartButton style={{width:"80px"}} product={product} />
+                            <div className=" d-flex align-items-center gap-3 mb-4">
+
+                                <CartButton product={product} />
                             </div>
 
                             <div className="product-meta">

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, BrowserRouter as Router } from 'react-router-dom';
+import { Route, HashRouter } from 'react-router-dom';
 import MyNavbar from './components/navbar/MyNavbar';
 import Footer from "./components/footer/Footer"
 import Approutes from './routes/Approutes';
@@ -7,11 +7,11 @@ import Approutes from './routes/Approutes';
 const App = () => {
 
   return (
-    <Router>
+    <HashRouter>
       <MyNavbar/>
       <Approutes/>
       <Footer/>
-    </Router>
+    </HashRouter>
 
   )
 }
