@@ -56,7 +56,7 @@ const ImageCompare = () => {
   };
 
   return (
-    <div className="container-fluid p-0 bg-dark " style={{ width: "90%" }}>
+    <div className="container-fluid p-0 bg-dark " style={{ width: "90%", marginBottom:"80px" }}>
       <div ref={containerRef} className="slider-container">
 
         {/* BACK SIDE (Before) */}
