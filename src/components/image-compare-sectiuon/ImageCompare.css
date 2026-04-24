@@ -82,6 +82,10 @@
   .label-tag {
     display: none;
 }
+.slider-handle img {
+    width: 110px;
+}
+
 }
 
 @media (max-width: 320px) {
@@ -90,5 +94,8 @@
   }
   .label-tag {
     display: none;
+}
+.slider-handle img {
+    width: 99px;
 }
 }
